@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+
+	
+		<action name="contracts" class="com.smallken.action.ContractAction" method="findContracts">
+			<result name="success">contracts.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>
+		
+		<action name="contracts_insert" class="com.smallken.action.ContractAction"  method="doInsert">
+			<result name="success" >addresult.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>
+		
+		<action name="contracts_delete" class="com.smallken.action.ContractAction" method="doDelete">
+			<result name="success"  type="chain">contracts</result>
+			<result name="test">test.jsp</result>
+		</action>		
+
+		<action name="contracts_query" class="com.smallken.action.ContractAction" method="doQuery">
+			<result name="success">result.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>
+					
+		<action name="History" class="com.smallken.action.HistoryAction"  >
+			<result name="success">addresult.jsp</result>
+			<result name="addpay">addpay.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>		
+							
+		<action name="History_calculate" class="com.smallken.action.HistoryAction" method="doCalculate">
+			<result name="success">addresult.jsp</result>
+			<result name="addpay">addpay.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>		
+		
+		<action name="History_insert" class="com.smallken.action.HistoryAction" method="insert">
+			<result name="success" type="chain">History_query</result>
+			<result name="test">test.jsp</result>
+		</action>
+
+	   <action name="History_query" class="com.smallken.action.HistoryAction"  method="query">
+			<result name="success">history_result.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>
+
+	   <action name="History_delete" class="com.smallken.action.HistoryAction"  method="delete">
+			<result name="success"  type="chain">History_query</result>
+			<result name="test">test.jsp</result>
+		</action>
+							
+	   <action name="pub_dashboard" class="com.smallken.action.PubDashboardAction"  >
+			<result name="success" >pub_result.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>
+		
+		<action name="pub_dashboard_new" class="com.smallken.action.HisDashboard_Action" >
+			<result name="success" >addpub_result.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>
+		
+		
+
+		<action name="pub_dashboard_query" class="com.smallken.action.HisDashboard_Action"  method="query">
+			<result name="success" >his_pub_result.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>
+			
+		<action name="pub_dashboard_calculate" class="com.smallken.action.HisDashboard_Action"  method="doCalculate">
+			<result name="success" >addpub_result.jsp</result>
+			<result name="test">test.jsp</result>
+		</action>
+
+		<action name="pub_dashboard_insert" class="com.smallken.action.HisDashboard_Action" method="insert">
+			<result name="success" type="chain">pub_dashboard_query</result>
+			<result name="test">test.jsp</result>
+		</action>	
+		
+		<action name="pub_dashboard_delete" class="com.smallken.action.HisDashboard_Action" method="delete">
+			<result name="success" type="chain">pub_dashboard_query</result>
+			<result name="test">test.jsp</result>
+		</action>	
+
+	</package>
+</struts>  

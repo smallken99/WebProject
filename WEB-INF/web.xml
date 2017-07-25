@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:javaee="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>
+			org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+		</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <javaee:description>MySQL Test App</javaee:description>
+  <javaee:resource-ref>
+    <javaee:description>DB Connection</javaee:description>
+    <javaee:res-ref-name>jdbc/DB</javaee:res-ref-name>
+    <javaee:res-type>javax.sql.DataSource</javaee:res-type>
+    <javaee:res-auth>Container</javaee:res-auth>
+  </javaee:resource-ref>
+</web-app>
